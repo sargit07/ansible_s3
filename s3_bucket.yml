@@ -1,0 +1,16 @@
+---
+- hosts: localhost
+  connection: all
+  vars_files:
+    - creds.yml
+  tasks:
+  - name: create a simple s3 bucket
+    amazon.aws.s3_bucket:
+       name: ansiblebuck987654
+       state: present
+       region: us-east-1
+       aws_access_key: "{{ aws_access_key }}"
+       aws_secret_key: "{{ aws_secret_key }}"
+
+
+
